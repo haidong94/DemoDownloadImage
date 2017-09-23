@@ -22,18 +22,20 @@ public class ImageDownloadAndSave extends AsyncTask<String, Void, Bitmap>
     @Override
     protected Bitmap doInBackground(String... arg0)
     {
-        downloadImagesToSdCard("","");
+        downloadImagesToSdCard("");
         return null;
     }
 
-    private void downloadImagesToSdCard(String downloadUrl,String imageName)
+    private void downloadImagesToSdCard(String downloadUrl)
     {
         try
         {
             URL url = new URL("https://png.pngtree.com/thumb_back/fh260/back_pic/00/01/80/73560a545c6ae6b.jpg");
-                        /* making a directory in sdcard */
+
+
+            /* making a directory in sdcard */
             String sdCard= Environment.getExternalStorageDirectory().toString();
-            File myDir = new File(sdCard,"/sdcard/Images/test.jpg");
+            File myDir = new File(sdCard+"/image");
 
             /*  if specified not exist create new */
             if(!myDir.exists())
@@ -43,7 +45,7 @@ public class ImageDownloadAndSave extends AsyncTask<String, Void, Bitmap>
             }
 
             /* checks the file and if it already exist delete */
-            String fname = imageName;
+            String fname = "test.jpg";
             File file = new File (myDir, fname);
             if (file.exists ())
                 file.delete ();
