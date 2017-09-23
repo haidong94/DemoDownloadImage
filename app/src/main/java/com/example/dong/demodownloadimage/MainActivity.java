@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 new ImageDownloadAndSave().execute("");
 
 
-                File imgFile = new  File("/sdcard/Images/test.jpg");
+                File imgFile = new  File(Environment.getExternalStorageDirectory()+"/image/test.jpg");
 
                 if(imgFile.exists()){
 
